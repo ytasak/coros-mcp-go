@@ -32,4 +32,6 @@ var authErrorCodes = map[string]bool{
 	"1003": true,
 	"1004": true,
 	"1005": true,
+	"1019": true,
+	"5006": true,
 }
