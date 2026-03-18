@@ -18,38 +18,38 @@ var httpClient = &http.Client{Timeout: 30 * time.Second}
 type emptyArgs struct{}
 
 type getWorkoutsArgs struct {
-	StartDate string `json:"start_date,omitempty" jsonschema:"description=Start date YYYYMMDD. Defaults to 30 days ago."`
-	EndDate   string `json:"end_date,omitempty" jsonschema:"description=End date YYYYMMDD. Defaults to today."`
-	Page      int    `json:"page,omitempty" jsonschema:"description=Page number (default 1)"`
-	Size      int    `json:"size,omitempty" jsonschema:"description=Results per page (default 20)"`
+	StartDate string `json:"start_date,omitempty" jsonschema_description:"Start date YYYYMMDD. Defaults to 30 days ago."`
+	EndDate   string `json:"end_date,omitempty" jsonschema_description:"End date YYYYMMDD. Defaults to today."`
+	Page      int    `json:"page,omitempty" jsonschema_description:"Page number (default 1)"`
+	Size      int    `json:"size,omitempty" jsonschema_description:"Results per page (default 20)"`
 }
 
 type workoutIDArgs struct {
-	LabelID   string `json:"label_id" jsonschema:"required,description=Workout labelId from get_workouts"`
-	SportType string `json:"sport_type" jsonschema:"required,description=sportType code from get_workouts (e.g. 101 for run)"`
+	LabelID   string `json:"label_id" jsonschema:"required" jsonschema_description:"Workout labelId from get_workouts"`
+	SportType string `json:"sport_type" jsonschema:"required" jsonschema_description:"sportType code from get_workouts (e.g. 101 for run)"`
 }
 
 type getWorkoutFileArgs struct {
-	LabelID   string `json:"label_id" jsonschema:"required,description=Workout labelId from get_workouts"`
-	SportType string `json:"sport_type" jsonschema:"required,description=sportType code from get_workouts (e.g. 101 for run)"`
-	FileType  string `json:"file_type,omitempty" jsonschema:"description=File format: fit\\, tcx\\, gpx\\, or kml (default: fit)"`
+	LabelID   string `json:"label_id" jsonschema:"required" jsonschema_description:"Workout labelId from get_workouts"`
+	SportType string `json:"sport_type" jsonschema:"required" jsonschema_description:"sportType code from get_workouts (e.g. 101 for run)"`
+	FileType  string `json:"file_type,omitempty" jsonschema_description:"File format: fit, tcx, gpx, or kml (default: fit)"`
 }
 
 type getRecentRunsArgs struct {
-	Days int `json:"days,omitempty" jsonschema:"description=Number of days to look back (max 90\\, default 14)"`
+	Days int `json:"days,omitempty" jsonschema_description:"Number of days to look back (max 90, default 14)"`
 }
 
 type dateRangeArgs struct {
-	StartDate string `json:"start_date,omitempty" jsonschema:"description=Start date YYYYMMDD. Defaults to 30 days ago."`
-	EndDate   string `json:"end_date,omitempty" jsonschema:"description=End date YYYYMMDD. Defaults to today."`
+	StartDate string `json:"start_date,omitempty" jsonschema_description:"Start date YYYYMMDD. Defaults to 30 days ago."`
+	EndDate   string `json:"end_date,omitempty" jsonschema_description:"End date YYYYMMDD. Defaults to today."`
 }
 
 type labelIDArgs struct {
-	LabelID string `json:"label_id" jsonschema:"required,description=Workout labelId from get_workouts"`
+	LabelID string `json:"label_id" jsonschema:"required" jsonschema_description:"Workout labelId from get_workouts"`
 }
 
 type getSizeArgs struct {
-	Size int `json:"size,omitempty" jsonschema:"description=Number of results (default 10)"`
+	Size int `json:"size,omitempty" jsonschema_description:"Number of results (default 10)"`
 }
 
 // withAuth wraps an API call with authentication and auto-retry on token expiry.
